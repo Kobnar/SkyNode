@@ -28,8 +28,11 @@
 *.app
 
 # Build directories
-build/
-lib/
+/bin/
+/lib/
+
+# Dependencies
+src/lib/inih
 
 # CMake files
 CMakeCache.txt
