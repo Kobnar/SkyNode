@@ -1,6 +1,8 @@
 #ifndef SKYNODE_BUFFER_H_
 #define SKYNODE_BUFFER_H_
 
+#include <iostream>
+
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 
@@ -16,18 +18,24 @@ namespace skynode {
 	private:
 		// Settings:
 		// 	TODO: Fetch settings from file/args
-		static const int PREPROCESS_BLUR_ = 2;
 		static const int BUFFER_LENGTH_ = 2;
+		static const Size PREPROCESS_BLUR_;
+		static const int MIN_DIFF_THRESHOLD_;
+		static const Size NOISE_ERODE_;
 		
 		// Members:
 		VideoCapture source_;
+		Size matrix_size_;
 		Mat raw_ [BUFFER_LENGTH_];
 		Mat processed_ [BUFFER_LENGTH_];
 		Mat difference_;
+		Mat debug_;
 		bool cursor_ = 0;
 		
 		// Private methods:
 		void preProcess(int idx);
+		void genDifference(int idx);
+		void detectMovement();
 		
 	public:
 		// Constructors:
@@ -41,6 +49,7 @@ namespace skynode {
 		Mat getRaw();
 		Mat getProcessed();
 		Mat getDifference();
+		Mat getDebug();
 		
 	}; // class Buffer
 	
