@@ -5,6 +5,8 @@
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 
+#include "buffer.h"
+
 using namespace std;
 using namespace cv;
 namespace skynode {
@@ -14,8 +16,7 @@ namespace skynode {
 	class Node
 	{
 	private:
-		VideoCapture source_;
-		Mat raw_matrix_;
+		Buffer buffer_;
 		
 	public:
 		Node(VideoCapture capture_source);
@@ -23,8 +24,8 @@ namespace skynode {
 		void step();
 		
 		Mat getRaw();
-		// Mat getProcessed();
-		// Mat getDifference();
+		Mat getProcessed();
+		Mat getDifference();
 		
 	}; // class Node
 
