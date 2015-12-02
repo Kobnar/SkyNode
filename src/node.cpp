@@ -22,16 +22,10 @@ namespace skynode {
 		return buffer_.getRaw();
 	}
 	
-	// Return the most recent processed matrix
-	Mat Node::getProcessed()
+	// Return the most recent debug matrix
+	Mat Node::getDebug()
 	{
-		return buffer_.getProcessed();
-	}
-	
-	// Return the most recent absolute difference matrix
-	Mat Node::getDifference()
-	{
-		return buffer_.getDifference();
+		return buffer_.getDebug();
 	}
 
 } // namespace skynode

@@ -23,7 +23,7 @@ int main()
 		node.step();
 		
 		// Draw the most recent raw frame in the main window
-		imshow("SkyNode", node.getDifference());
+		imshow("SkyNode", node.getDebug());
 		
 		// Wait for user input
 		// TODO: Actually handle input
